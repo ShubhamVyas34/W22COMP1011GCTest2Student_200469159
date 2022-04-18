@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.TreeSet;
 
 public class TableViewController implements Initializable {
     @FXML
@@ -55,6 +56,7 @@ public class TableViewController implements Initializable {
     private ImageView imageView;
 
     private ArrayList<Customer> data;
+    private String data2;
 
     @FXML
     private void top10Customers()
@@ -71,7 +73,8 @@ public class TableViewController implements Initializable {
     @FXML
     private void loadAllCustomers()
     {
-        System.out.println("called method loadAllCustomers");
+        tableView.getItems().clear();
+        updateLabel();
     }
 
 
@@ -79,7 +82,6 @@ public class TableViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ApiResponse apiResponse=ApiUtility.getCustomerDataFromJsonFile("customers.json");
         data=apiResponse.getCustomers();
-        Customer customer=new Customer();
 
         idColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -90,6 +92,12 @@ public class TableViewController implements Initializable {
         tableView.getItems().addAll(data);
         updateLabel();
 
+        tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+              //  purchaseListView.getItems().addAll();
+
+            }
+        });
 
         //System.out.println(data);
 

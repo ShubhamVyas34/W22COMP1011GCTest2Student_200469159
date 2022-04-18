@@ -12,7 +12,7 @@ public class Product {
   public String regularPrice;
   public String image;
 
-  public int getId() {
+  public int  getId() {
     return id;
   }
 
