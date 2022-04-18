@@ -1,3 +1,7 @@
+/*
+ * Name : Shubham Vyas;
+ * Enrollment Number : 200469159
+ * */
 package com.example.w22comp1011gctest2student;
 
 import java.util.ArrayList;
@@ -28,7 +32,7 @@ public class Customer {
     public ArrayList<Product> getPurchases() {
         return purchases;
     }
-   
+
 
 
 }
