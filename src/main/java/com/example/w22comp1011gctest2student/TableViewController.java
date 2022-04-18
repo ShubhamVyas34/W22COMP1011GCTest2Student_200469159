@@ -79,15 +79,22 @@ public class TableViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ApiResponse apiResponse=ApiUtility.getCustomerDataFromJsonFile("customers.json");
         data=apiResponse.getCustomers();
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        Customer customer=new Customer();
+
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         totalPurchaseColumn.setCellValueFactory(new PropertyValueFactory<>("purchases"));
 
         tableView.getItems().addAll(data);
+        updateLabel();
+
 
         //System.out.println(data);
 
+    }
+    public void updateLabel(){
+            rowsInTableLabel.setText(String.valueOf(tableView.getItems().size()));
     }
 }
