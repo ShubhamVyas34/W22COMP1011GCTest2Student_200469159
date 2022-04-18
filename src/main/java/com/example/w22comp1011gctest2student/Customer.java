@@ -7,7 +7,7 @@ public class Customer {
     public String firstName;
     public String lastName;
     public String phoneNumber;
-    private ArrayList<String> purchases;
+    public ArrayList<Product> purchases;
 
     public int getId() {
         return id;
@@ -25,7 +25,7 @@ public class Customer {
         return phoneNumber;
     }
 
-    public ArrayList<String> getPurchases() {
+    public ArrayList<Product> getPurchases() {
         return purchases;
     }
 
