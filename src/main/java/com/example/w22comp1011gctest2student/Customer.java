@@ -28,5 +28,7 @@ public class Customer {
     public ArrayList<Product> getPurchases() {
         return purchases;
     }
+   
+
 
 }
